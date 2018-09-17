@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Post
+from .models import Post, Product
 from django.template.loader import get_template
 from datetime import datetime
 from django.shortcuts import redirect
@@ -31,3 +31,29 @@ def showpost(request, slug):
             return HttpResponse(html)
     except:
         return redirect('/')
+
+def listing(request):
+    template = get_template('listing.html')
+    try:
+        products = Product.objects.all()
+        if products is not None:
+            html = template.render(locals())
+            return HttpResponse(html)
+    except:
+        return redirect('/')
+
+def about (request):
+    html = '''
+    <!DOCTYPE html>
+    <html>
+    <head><title>About Myself</title></head>
+    <body>
+    <h2>Min-Huang Ho</h2>
+    <hr>
+    <p>
+    Hi, I am Min-Huang Ho. Nice to meet you!
+    </p>
+    </body>
+    </html>
+    '''
+    return HttpResponse(html)

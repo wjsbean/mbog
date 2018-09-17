@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        中古手机列表
+    </title>
+</head>
+<body>
+<h2>
+    以下是目前本店销售中的二手手机列表
+</h2>
+<hr>
+<table width="400" border="1" bgcolor="#7fffd4">
+    <tr>
+        <th>产品</th>
+        <th>销售</th>
+        <th>库存量</th>
+    </tr>
+    {% for p in products %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.qty }}</td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -13,3 +13,17 @@ class Post(models.Model):
         
     def __str__(self):
         return self.title
+
+class Product(models.Model):
+    Sizes = (
+        ('S', 'Smail'),
+        ('M', 'Medium'),
+        ('L', 'Large'),
+    )
+    #sku = models.CharField(max_length=5)
+    name = models.CharField(max_length=20)
+    price = models.PositiveIntegerField()
+    qty = models.CharField(max_length=2, default='0')
+
+    def __str__(self):
+        return self.name
