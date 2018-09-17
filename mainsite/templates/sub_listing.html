@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        TEST FOR SUPER_LINK
+        {{ product.name }}
     </title>
 </head>
 <body>
-    <h1>产品详细信息</h1>
+    <h1>产品详细信息：{{ product.name }}</h1>
     <hr>
-        <table width="200" border="1" bgcolor="#f0f8ff">
+        <table width="400" border="1" bgcolor="#f0f8ff">
             <tr>
                 <td>产品编号</td>
                 <td>{{ product.id }}</td>
@@ -27,6 +27,6 @@
                 <td>{{ product.qty }}</td>
             </tr>
         </table>
-    <a style="font-family: 微软雅黑; font-size: 16pt; font-weight: bold;", href="/list/">返回列表</a>
+    <a style="font-family: 微软雅黑; font-size: 16pt; font-weight: bold;" href="/list/">返回列表</a>
 </body>
 </html>

@@ -4,6 +4,7 @@ from .models import Post, Product
 from django.template.loader import get_template
 from datetime import datetime
 from django.shortcuts import redirect
+import random
 # Create your views here.
 
 def homepage(request):
@@ -53,17 +54,12 @@ def sub_listing(request, name):
         raise Http404('找不到你要查询的产品，请核对后重新输入')
 
 def about (request):
-    html = '''
-    <!DOCTYPE html>
-    <html>
-    <head><title>About Myself</title></head>
-    <body>
-    <h2>Min-Huang Ho</h2>
-    <hr>
-    <p>
-    Hi, I am Min-Huang Ho. Nice to meet you!
-    </p>
-    </body>
-    </html>
-    '''
+    template = get_template('about.html')
+    quotes = [
+        '今日事，今日毕',
+        '要收获，先付出',
+        '知识就是力量',
+        '一个人的个性就是他的命运'
+    ]
+    html = template.render({'quote':random.choice(quotes)})
     return HttpResponse(html)
