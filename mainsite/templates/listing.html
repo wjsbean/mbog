@@ -7,23 +7,20 @@
     </title>
 </head>
 <body>
-<h2>
-    以下是目前本店销售中的二手手机列表
-</h2>
+<h1>
+    本店目前销售中的二手手机列表
+</h1>
 <hr>
 <table width="400" border="1" bgcolor="#7fffd4">
     <tr>
         <th>产品</th>
-        <th>销售</th>
-        <th>库存量</th>
     </tr>
     {% for p in products %}
         <tr>
             <td><a href="/list/{{ p.name }}">{{ p.name }}</a></td>
-            <td>{{ p.price }}</td>
-            <td>{{ p.qty }}</td>
         </tr>
     {% endfor %}
 </table>
+<a href="/about/">关于我</a>
 </body>
 </html>
