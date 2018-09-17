@@ -19,7 +19,7 @@
     </tr>
     {% for p in products %}
         <tr>
-            <td>{{ p.name }}</td>
+            <td><a href="/list/{{ p.name }}">{{ p.name }}</a></td>
             <td>{{ p.price }}</td>
             <td>{{ p.qty }}</td>
         </tr>

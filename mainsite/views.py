@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 from .models import Post, Product
 from django.template.loader import get_template
 from datetime import datetime
@@ -41,6 +41,16 @@ def listing(request):
             return HttpResponse(html)
     except:
         return redirect('/')
+
+def sub_listing(request, name):
+    template = get_template('sub_listing.html')
+    try:
+        product = Product.objects.get(name=name)
+        if product is not None:
+            html = template.render(locals())
+            return HttpResponse(html)
+    except Product.DoesNotExist:
+        raise Http404('找不到你要查询的产品，请核对后重新输入')
 
 def about (request):
     html = '''

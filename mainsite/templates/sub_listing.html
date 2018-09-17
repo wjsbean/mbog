@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        TEST FOR SUPER_LINK
+    </title>
+</head>
+<body>
+    <h1>产品详细信息</h1>
+    <hr>
+        <table width="200" border="1" bgcolor="#f0f8ff">
+            <tr>
+                <td>产品编号</td>
+                <td>{{ product.id }}</td>
+            </tr>
+            <tr>
+                <td>产品名称</td>
+                <td>{{ product.name }}</td>
+            </tr>
+            <tr>
+                <td>产品价格</td>
+                <td>{{ product.price }}</td>
+            </tr>
+            <tr>
+                <td>库存量</td>
+                <td>{{ product.qty }}</td>
+            </tr>
+        </table>
+    <a style="font-family: 微软雅黑; font-size: 16pt; font-weight: bold;", href="/list/">返回列表</a>
+</body>
+</html>
