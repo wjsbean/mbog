@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        电视直播
+    </title>
+    <!--- latest compeled and minified CSS --->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">正在播出{{ tv.name }}</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/tv/">Home</a> </li>
+                <li><a href="{% url 'tv-url' 0 %}">CCTV 综合</a></li>
+                <li><a href="{% url 'tv-url' 1 %}">CCTV 经济</a> </li>
+                <li><a href="{% url 'tv-url' 2 %}">CCTV 综艺</a> </li>
+                <li><a href="{% url 'tv-url' 3 %}">CCTV 国际</a> </li>
+                <li><a href="{% url 'tv-url' 4 %}">CCTV 体育</a> </li>
+                <li><a href="{% url 'tv-url' 5 %}">CCTV 电影</a> </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div id="tvcode" align="center">
+            <iframe width="1000" height="615" src="http://tv.cctv.com/live/{{ tv.tvcode }}/?autoplay=1" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-footer"><em>{{ now }}</em></div>
+    </div>
+</body>
+</html>

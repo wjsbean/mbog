@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Product
+from .models import Post, Product, Maker, PModel, PPhoto, PProduct
 # Register your models here.
 
 class PostAdmin(admin.ModelAdmin):
@@ -7,3 +7,7 @@ class PostAdmin(admin.ModelAdmin):
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Product)
+admin.site.register(Maker)
+admin.site.register(PModel)
+admin.site.register(PPhoto)
+admin.site.register(PProduct)

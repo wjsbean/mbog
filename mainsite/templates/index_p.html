@@ -1,0 +1,29 @@
+<!-- index_p.html -->
+{% extends 'base_p.html' %}
+{% block title %} DJ手机市场{% endblock %}
+{% block content %}
+<div class="container" align="enter">
+   {% for p in products %}
+        {% if forloop.first %}
+            <table>
+                <tr bgcolor="#cccccc">
+                    <td width="250">库存手机</td>
+                    <td width="250">品牌/型号</td>
+                    <td width="150">出场年份</td>
+                    <td>价格</td>
+                </tr>
+        {% endif %}
+            <tr bgcolor="{% cycle "#ffccff" "ccffcc" %}">
+                <td>{{ p.nickname }}</td>
+                <td>{{ p.pmodel.maker.name }}</td>
+                <td>{{ p.year }}</td>
+                <td align="right">{{ p.price }}</td>
+            </tr>
+        {% if forloop.last %}
+            </table>
+        {% endif %}
+       {% empty %}
+       <h3>目前库存没有手机可买，抱歉！</h3>
+    {% endfor %}
+</div>
+{% endblock %}
