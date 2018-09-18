@@ -63,3 +63,8 @@ def about (request):
     ]
     html = template.render({'quote':random.choice(quotes)})
     return HttpResponse(html)
+
+def sum_a_b(request, a, b):
+    template = get_template('Test_url.html')
+    html = template.render({'sum_a_b': int(a) + int(b)})
+    return HttpResponse(html)
