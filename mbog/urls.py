@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, re_path
 from mainsite.views import homepage, showpost, about, listing, sub_listing, sum_a_b, live_telecast
-from mainsite.views import index
+from mainsite.views import index, detail_p
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,6 @@ urlpatterns = [
     re_path('([0-9]+)/([0-9]+)/', sum_a_b),
     re_path('tv/([0-6])/', live_telecast, name='tv-url'),
 
-    path('phone/', index, name='phone_index')
+    path('phone/', index, name='phone_index'),
+    re_path('phone/detail/(\d+)', detail_p, name='detail-url'),
 ]

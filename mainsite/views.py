@@ -89,3 +89,13 @@ def index(request):
     template = get_template('index_p.html')
     html = template.render(locals())
     return HttpResponse(html)
+
+def detail_p(request, id):
+    try:
+        product = PProduct.objects.get(id=id)
+        images = PPhoto.objects.filter(product=product)
+    except:
+        pass
+    tempalte = get_template('detail_p.html')
+    html = tempalte.render(locals())
+    return HttpResponse(html)
